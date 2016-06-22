@@ -1,0 +1,18 @@
+C:\Users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\bin\Release\apkdecompiler.exe.config
+C:\Users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\bin\Release\apkdecompiler.exe
+C:\Users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\bin\Release\apkdecompiler.pdb
+C:\Users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Release\apkdecompiler.csprojResolveAssemblyReference.cache
+C:\Users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Release\apkdecompiler.Form1.resources
+C:\Users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Release\apkdecompiler.Properties.Resources.resources
+C:\Users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Release\apkdecompiler.csproj.GenerateResource.Cache
+C:\Users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Release\apkdecompiler.exe
+C:\Users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Release\apkdecompiler.pdb
+C:\Users\bubu\Desktop\apkdecompiler\apkdecompiler\bin\Release\AutoAPKTool.exe.config
+C:\Users\bubu\Desktop\apkdecompiler\apkdecompiler\bin\Release\AutoAPKTool.exe
+C:\Users\bubu\Desktop\apkdecompiler\apkdecompiler\bin\Release\AutoAPKTool.pdb
+C:\Users\bubu\Desktop\apkdecompiler\apkdecompiler\obj\Release\apkdecompiler.csprojResolveAssemblyReference.cache
+C:\Users\bubu\Desktop\apkdecompiler\apkdecompiler\obj\Release\apkdecompiler.Form1.resources
+C:\Users\bubu\Desktop\apkdecompiler\apkdecompiler\obj\Release\AutoAPKTool.Properties.Resources.resources
+C:\Users\bubu\Desktop\apkdecompiler\apkdecompiler\obj\Release\apkdecompiler.csproj.GenerateResource.Cache
+C:\Users\bubu\Desktop\apkdecompiler\apkdecompiler\obj\Release\AutoAPKTool.exe
+C:\Users\bubu\Desktop\apkdecompiler\apkdecompiler\obj\Release\AutoAPKTool.pdb
