@@ -1,4 +1,4 @@
-﻿namespace apkdecompiler
+﻿namespace AutoAPKTool
 {
 	partial class Form1
 	{
@@ -43,14 +43,14 @@
             this.btn_env = new System.Windows.Forms.Button();
             this.my_sign = new System.Windows.Forms.Button();
             this.zipalgin = new System.Windows.Forms.Button();
-            this.about = new System.Windows.Forms.Button();
+            this.odex_decompile = new System.Windows.Forms.Button();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.签名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.启动App命令ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.博客ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.吾爱破解ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.启动App命令ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,7 +199,7 @@
             this.btn_env.TabIndex = 15;
             this.btn_env.Text = "查壳";
             this.btn_env.UseVisualStyleBackColor = true;
-            this.btn_env.Click += new System.EventHandler(this.Btn_envClick);
+            this.btn_env.Click += new System.EventHandler(this.Btn_CheckProtect);
             // 
             // my_sign
             // 
@@ -223,16 +223,16 @@
             this.zipalgin.UseVisualStyleBackColor = true;
             this.zipalgin.Click += new System.EventHandler(this.ZipalginClick);
             // 
-            // about
+            // odex_decompile
             // 
-            this.about.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.about.Location = new System.Drawing.Point(386, 174);
-            this.about.Name = "about";
-            this.about.Size = new System.Drawing.Size(95, 33);
-            this.about.TabIndex = 18;
-            this.about.Text = "Odex反编译";
-            this.about.UseVisualStyleBackColor = true;
-            this.about.Click += new System.EventHandler(this.AboutClick);
+            this.odex_decompile.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.odex_decompile.Location = new System.Drawing.Point(386, 174);
+            this.odex_decompile.Name = "odex_decompile";
+            this.odex_decompile.Size = new System.Drawing.Size(95, 33);
+            this.odex_decompile.TabIndex = 18;
+            this.odex_decompile.Text = "Odex反编译";
+            this.odex_decompile.UseVisualStyleBackColor = true;
+            this.odex_decompile.Click += new System.EventHandler(this.odex_dec);
             // 
             // menu
             // 
@@ -262,6 +262,13 @@
             this.签名ToolStripMenuItem.Text = "签名";
             this.签名ToolStripMenuItem.Click += new System.EventHandler(this.签名ToolStripMenuItemClick);
             // 
+            // 启动App命令ToolStripMenuItem
+            // 
+            this.启动App命令ToolStripMenuItem.Name = "启动App命令ToolStripMenuItem";
+            this.启动App命令ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.启动App命令ToolStripMenuItem.Text = "启动App命令";
+            this.启动App命令ToolStripMenuItem.Click += new System.EventHandler(this.Btn_getArgsConmindLine);
+            // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -274,23 +281,16 @@
             // 博客ToolStripMenuItem
             // 
             this.博客ToolStripMenuItem.Name = "博客ToolStripMenuItem";
-            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.博客ToolStripMenuItem.Text = "博客";
-            this.博客ToolStripMenuItem.Click += new System.EventHandler(this.博客ToolStripMenuItem_Click);
+            this.博客ToolStripMenuItem.Click += new System.EventHandler(this.Btn_BlogClick);
             // 
             // 吾爱破解ToolStripMenuItem
             // 
             this.吾爱破解ToolStripMenuItem.Name = "吾爱破解ToolStripMenuItem";
-            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.吾爱破解ToolStripMenuItem.Text = "吾爱破解";
-            this.吾爱破解ToolStripMenuItem.Click += new System.EventHandler(this.吾爱破解ToolStripMenuItem_Click);
-            // 
-            // 启动App命令ToolStripMenuItem
-            // 
-            this.启动App命令ToolStripMenuItem.Name = "启动App命令ToolStripMenuItem";
-            this.启动App命令ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.启动App命令ToolStripMenuItem.Text = "启动App命令";
-            this.启动App命令ToolStripMenuItem.Click += new System.EventHandler(this.启动App命令ToolStripMenuItem_Click);
+            this.吾爱破解ToolStripMenuItem.Click += new System.EventHandler(this.Btn_52pojieClick);
             // 
             // Form1
             // 
@@ -298,7 +298,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 448);
-            this.Controls.Add(this.about);
+            this.Controls.Add(this.odex_decompile);
             this.Controls.Add(this.zipalgin);
             this.Controls.Add(this.my_sign);
             this.Controls.Add(this.btn_env);
@@ -324,7 +324,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Apktool Box v1.5.1";
+            this.Text = "Apktool Box v1.5.2";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.menu.ResumeLayout(false);
@@ -336,7 +336,7 @@
 		#endregion
 		private System.Windows.Forms.Button my_sign;
 		private System.Windows.Forms.Button zipalgin;
-		private System.Windows.Forms.Button about;
+		private System.Windows.Forms.Button odex_decompile;
 		private System.Windows.Forms.TextBox textBox_path;
 		private System.Windows.Forms.Button btn_Decompiler;
 		private System.Windows.Forms.Button btn_SignAPK;

@@ -117,4 +117,65 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="no_sign" xml:space="preserve">
+    <value>未发现签名文件!</value>
+  </data>
+  <data name="info" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="need_signs" xml:space="preserve">
+    <value>需要批量签名吗</value>
+  </data>
+  <data name="no_find_apk" xml:space="preserve">
+    <value>未发现apk文件!</value>
+  </data>
+  <data name="no_find_framework" xml:space="preserve">
+    <value>未发现framework框架，请自行将odex所在的手机或模拟器上system下的framework文件夹放在工具箱的tool文件夹下内，请勿重命名!</value>
+  </data>
+  <data name="no_find_odex" xml:space="preserve">
+    <value>未发现odex文件!</value>
+  </data>
+  <data name="files" xml:space="preserve">
+    <value>文件夹|*</value>
+  </data>
+  <data name="no_find_smali_files" xml:space="preserve">
+    <value>未发现smali文件夹!</value>
+  </data>
+  <data name="dex_files" xml:space="preserve">
+    <value>DEX|*.dex|All|*.*</value>
+  </data>
+  <data name="path" xml:space="preserve">
+    <value>路径: {0}</value>
+  </data>
+  <data name="no_find_dex" xml:space="preserve">
+    <value>未发现dex文件!</value>
+  </data>
+  <data name="no_find_jar" xml:space="preserve">
+    <value>未发现jar文件!</value>
+  </data>
+  <data name="pls_confirm_decompile_package" xml:space="preserve">
+    <value>请确认是否已经拖入反编译后的文件夹!</value>
+  </data>
+  <data name="apk_files" xml:space="preserve">
+    <value>APK|*.apk|All|*.*</value>
+  </data>
+  <data name="need_decompiles" xml:space="preserve">
+    <value>需要批量反编译吗</value>
+  </data>
+  <data name="jar_files" xml:space="preserve">
+    <value>Jar|*.jar</value>
+  </data>
+  <data name="enter" xml:space="preserve">
+    <value>
+</value>
+  </data>
+  <data name="pls_config" xml:space="preserve">
+    <value>请正确配置</value>
+  </data>
+  <data name="info_" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="make_succ" xml:space="preserve">
+    <value>生成成功</value>
+  </data>
 </root>
