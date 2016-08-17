@@ -1,9 +1,0 @@
-c:\users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\bin\Debug\apkdecompiler.exe.config
-c:\users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\bin\Debug\apkdecompiler.exe
-c:\users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\bin\Debug\apkdecompiler.pdb
-c:\users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Debug\apkdecompiler.csprojResolveAssemblyReference.cache
-c:\users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Debug\apkdecompiler.Form1.resources
-c:\users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Debug\apkdecompiler.Properties.Resources.resources
-c:\users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Debug\apkdecompiler.csproj.GenerateResource.Cache
-c:\users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Debug\apkdecompiler.exe
-c:\users\bubu\documents\visual studio 2015\Projects\apkdecompiler\apkdecompiler\obj\Debug\apkdecompiler.pdb
