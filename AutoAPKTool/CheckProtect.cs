@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace AutoAPKTool
 {
@@ -25,6 +26,74 @@ namespace AutoAPKTool
             }
             var result = Check(output);
             return result;
+        }
+
+        public static string checkProtect(string str)
+        {
+            var result = "";
+            if (str.Contains("Lcom/tencent/StubShell/LeguApplication"))
+            {
+                result = "腾讯乐固";
+
+            }
+            else if (str.Contains("Lcom/qihoo/util/StubApp"))
+            {
+                result = "360加固";
+
+            }
+            else if (str.Contains("Lcom/shell/SuperApplication")&&str.Contains("Lcom/shell/NativeApplication"))
+            {
+                result = "爱加密加固";
+
+            }
+            else if (str.Contains("Lcom/tencent/StubShell/LeguApplication"))
+            {
+                result = "腾讯乐固";
+
+            }
+            else if (str.Contains("Lcom/secneo/apkwrapper/ApplicationWrapper")&&str.Contains("Lcom/secneo/apkwrapper/DexInstall"))
+            {
+                result = "梆梆企业版加固";
+
+            }
+            else if (str.Contains("Lcom/netease/nis/wrapper/MyApplication"))
+            {
+                result = "网易云加密";
+
+            }
+            else if (str.Contains("Lcom/payegis/ProxyApplication"))
+            {
+                result = "通付盾加固";
+
+            }
+            else if (str.Contains("Lcom/bangcle/everisk/stub/"))
+            {
+                result = "梆梆免费版加固";
+
+            }
+            else if (str.Contains("Lcom/baidu/protect/StubApplication"))
+            {
+                result = "百度加固";
+
+            }
+            else if (str.Contains("Lcom/ali/mobisecenhance/StubApplication"))
+            {
+                result = "阿里加固";
+
+            }
+            else if(str.Length<90000)
+            {
+                result = "未知加固";
+
+            }
+            else
+            {
+                result = "未加固";
+            }
+        //    Console.WriteLine(str.Length);
+            return result;
+
+
         }
 
         private static string GetApkInfo(string inputApk)
