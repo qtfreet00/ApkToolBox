@@ -130,11 +130,14 @@ namespace AutoAPKTool
             {
                 product = "百度加固";
             }
-            else if (info.Contains("libddog.so"))
+            else if (info.Contains("libddog.so")|| info.Contains("libvdog.so"))
             {
                 product = "娜迦加固";
             }
             else if (info.Contains("libmobisec.so"))
+            {
+                product = "阿里16年加固";
+            }else if (info.Contains("libdemolish.so"))
             {
                 product = "阿里加固";
             }

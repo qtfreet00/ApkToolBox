@@ -17,6 +17,10 @@
             return string.Format("/c " + Constants.Aapt + " dump badging " + apk);
         }
 
+        public static string GetPackageNew(string apk)
+        {
+            return string.Format("-jar "+Constants.ApkFile +" "+ apk);
+        }
 
         public static string Signapk(string keypath, string keyw, string apkpath, string ais)
         {
@@ -29,7 +33,7 @@
         public static string DecOdex(string inputOdex, string outputSmali)
         {
             return
-                $"-jar \"{Constants.Baksmali}\" -d \"{Constants.OdexFramework}\" -x \"{inputOdex}\" -o \"{outputSmali}\"";
+                $"-jar \"{Constants.Baksmali}\" -c \"{Constants.OdexFramework}\"  \"{inputOdex}\" -o \"{outputSmali}\"";
         }
 
 
