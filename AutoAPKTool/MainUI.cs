@@ -350,10 +350,10 @@ namespace AutoAPKTool
                 return;
             }
             var config = ConfigFile.LoadFile(Constants.MySign);
-            _alis = config.GetKeyValue("alis");
-            _keyword = config.GetKeyValue("password");
-            _path = config.GetKeyValue("path");
-            _alispass = config.GetKeyValue("alispass");
+            _alis = config.GetConfigValue("alis");
+            _keyword = config.GetConfigValue("password");
+            _path = config.GetConfigValue("path");
+            _alispass = config.GetConfigValue("alispass");
         }
 
         private void 签名ToolStripMenuItemClick(object sender, EventArgs e)
