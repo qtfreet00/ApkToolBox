@@ -257,6 +257,7 @@ namespace AutoAPKTool
         private void btn_openFile_Click(object sender, EventArgs e)
         {
             var op = new OpenFileDialog();
+            op.Filter = "支持类型|*.apk;*.jar;*.odex;*.dex";
             if (op.ShowDialog() == DialogResult.OK)
             {
                 textBox_path.Text = op.FileName;
@@ -266,7 +267,7 @@ namespace AutoAPKTool
 
         private void Btn_jadxClick(object sender, EventArgs e)
         {
-            new Thread(() => { Excute(ExcuteJava, "-jar " + Constants.Jadx, false); }).Start();
+            new Thread(() => { Excute(ExcuteCmd, "/c " +  Constants.Jadx, false); }).Start();
         }
 
 
@@ -441,7 +442,7 @@ namespace AutoAPKTool
                     decompressedStream.Position = 0;
                     var reader = new StreamReader(decompressedStream);
                     var dex = reader.ReadToEnd();
-                    MessageBox.Show(CheckProtect.checkProtect(dex));
+                    MessageBox.Show(CheckProtect.checkProtect(dex),"提示");
 
 
                     //myfile.txt为取出的文件文本
@@ -454,7 +455,7 @@ namespace AutoAPKTool
 
         private void Btn_BlogClick(object sender, EventArgs e)
         {
-            Process.Start("http://qtfreet.com/");
+            Process.Start("https://qtfreet.com/");
         }
 
         private void Btn_52pojieClick(object sender, EventArgs e)
@@ -505,6 +506,12 @@ namespace AutoAPKTool
             var decodex = Util.DecOdex(text, outputFolderName);
 
             new Thread(() => { Excute(ExcuteJava, decodex, true); }).Start();
+        }
+
+        private void Btn_ArmToAsm_Click(object sender, EventArgs e)
+        {
+            var f = new ArmForm();
+            f.Show();
         }
     }
 }

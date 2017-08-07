@@ -39,7 +39,7 @@
 
         public static string GetBuildDex(string inputFolderName, string outputDex)
         {
-            return $"-jar \"{Constants.Smali}\"  \"{inputFolderName}\" -o \"{outputDex}\"";
+            return $"-jar \"{Constants.Smali}\" \"a\" \"{inputFolderName}\" -o \"{outputDex}\"";
         }
 
 
@@ -51,7 +51,7 @@
 
         public static string GetDecompilerDex(string inputDex, string outputFolderName)
         {
-            return $"-jar \"{Constants.Baksmali}\"  \"{inputDex}\" -o \"{outputFolderName}\"";
+            return $"-jar \"{Constants.Baksmali}\" \"d\"  \"{inputDex}\" -o \"{outputFolderName}\"";
         }
 
 

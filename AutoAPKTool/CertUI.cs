@@ -51,7 +51,8 @@ namespace AutoAPKTool
                 return;
             }
             var config = ConfigFile.LoadOrCreateFile(Constants.MySign);
-            config["path"] = text_path.Text;
+            File.Copy(text_path.Text, Constants.CopySign, true);
+            config["path"] = Constants.CopySign;
             config["alis"] = text_alis.Text;
             config["password"] = text_pass.Text;
             config["alispass"] = text_alis_pass.Text;

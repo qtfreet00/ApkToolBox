@@ -50,6 +50,7 @@
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.博客ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.吾爱破解ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arm转机器码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             this.textBox_path.Margin = new System.Windows.Forms.Padding(6);
             this.textBox_path.Name = "textBox_path";
             this.textBox_path.ReadOnly = true;
-            this.textBox_path.Size = new System.Drawing.Size(347, 31);
+            this.textBox_path.Size = new System.Drawing.Size(347, 26);
             this.textBox_path.TabIndex = 0;
             // 
             // btn_Decompiler
@@ -105,7 +106,7 @@
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(18, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 20);
+            this.label1.Size = new System.Drawing.Size(35, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "路径:\r\n";
             // 
@@ -238,10 +239,11 @@
             this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.配置ToolStripMenuItem,
+            this.arm转机器码ToolStripMenuItem,
             this.关于ToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(501, 28);
+            this.menu.Size = new System.Drawing.Size(501, 25);
             this.menu.TabIndex = 19;
             this.menu.Text = "配置";
             // 
@@ -250,13 +252,13 @@
             this.配置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.签名ToolStripMenuItem});
             this.配置ToolStripMenuItem.Name = "配置ToolStripMenuItem";
-            this.配置ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.配置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.配置ToolStripMenuItem.Text = "配置";
             // 
             // 签名ToolStripMenuItem
             // 
             this.签名ToolStripMenuItem.Name = "签名ToolStripMenuItem";
-            this.签名ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.签名ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.签名ToolStripMenuItem.Text = "签名配置";
             this.签名ToolStripMenuItem.Click += new System.EventHandler(this.签名ToolStripMenuItemClick);
             // 
@@ -266,27 +268,34 @@
             this.博客ToolStripMenuItem,
             this.吾爱破解ToolStripMenuItem});
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.关于ToolStripMenuItem.Text = "关于";
             // 
             // 博客ToolStripMenuItem
             // 
             this.博客ToolStripMenuItem.Name = "博客ToolStripMenuItem";
-            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.博客ToolStripMenuItem.Text = "博客";
             this.博客ToolStripMenuItem.Click += new System.EventHandler(this.Btn_BlogClick);
             // 
             // 吾爱破解ToolStripMenuItem
             // 
             this.吾爱破解ToolStripMenuItem.Name = "吾爱破解ToolStripMenuItem";
-            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.吾爱破解ToolStripMenuItem.Text = "吾爱破解";
             this.吾爱破解ToolStripMenuItem.Click += new System.EventHandler(this.Btn_52pojieClick);
+            // 
+            // arm转机器码ToolStripMenuItem
+            // 
+            this.arm转机器码ToolStripMenuItem.Name = "arm转机器码ToolStripMenuItem";
+            this.arm转机器码ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.arm转机器码ToolStripMenuItem.Text = "Arm转机器码";
+            this.arm转机器码ToolStripMenuItem.Click += new System.EventHandler(this.Btn_ArmToAsm_Click);
             // 
             // MainUI
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 448);
             this.Controls.Add(this.getArgs);
@@ -347,6 +356,7 @@
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 博客ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 吾爱破解ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arm转机器码ToolStripMenuItem;
     }
 }
 

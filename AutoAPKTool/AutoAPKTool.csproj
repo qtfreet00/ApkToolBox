@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArmToAsmUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArmToAsmUI.designer.cs">
+      <DependentUpon>ArmToAsmUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckProtect.cs" />
     <Compile Include="ConfigFile.cs" />
     <Compile Include="Constants.cs" />
@@ -88,6 +94,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="ArmToAsmUI.resx">
+      <DependentUpon>ArmToAsmUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
     </EmbeddedResource>

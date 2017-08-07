@@ -22,3 +22,4 @@ C:\Users\qtfreet00\Desktop\ApkToolBox\AutoAPKTool\obj\Debug\AutoAPKTool.Properti
 C:\Users\qtfreet00\Desktop\ApkToolBox\AutoAPKTool\obj\Debug\AutoAPKTool.csproj.GenerateResource.Cache
 C:\Users\qtfreet00\Desktop\ApkToolBox\AutoAPKTool\obj\Debug\AutoAPKTool.exe
 C:\Users\qtfreet00\Desktop\ApkToolBox\AutoAPKTool\obj\Debug\AutoAPKTool.pdb
+C:\Users\qtfreet00\Desktop\ApkToolBox\AutoAPKTool\obj\Debug\AutoAPKTool.ArmForm.resources
