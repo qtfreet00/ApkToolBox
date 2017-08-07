@@ -33,6 +33,11 @@ namespace AutoAPKTool
             var result = "";
             if (str.Contains("Lcom/tencent/StubShell/LeguApplication"))
             {
+                result = "腾讯16年乐固";
+
+            }
+            if (str.Contains("Lcom/tencent/StubShell/TxAppEntry"))
+            {
                 result = "腾讯乐固";
 
             }
@@ -41,14 +46,19 @@ namespace AutoAPKTool
                 result = "360加固";
 
             }
-            else if (str.Contains("Lcom/shell/SuperApplication")&&str.Contains("Lcom/shell/NativeApplication"))
+            else if (str.Contains("Lcom/stub/StubApp")&& str.Contains("Lcom/qihoo/util/QHDialog"))
             {
-                result = "爱加密加固";
+                result = "360加固";
 
             }
-            else if (str.Contains("Lcom/tencent/StubShell/LeguApplication"))
+            else if (str.Contains("Lcom/shell/SuperApplication")&&str.Contains("Lcom/shell/NativeApplication"))
             {
-                result = "腾讯乐固";
+                result = "爱加密16年加固";
+
+            }
+            else if (str.Contains("Ls/h/e/l/l/S") && str.Contains("Ls/h/e/l/l/N"))
+            {
+                result = "爱加密16年加固";
 
             }
             else if (str.Contains("Lcom/secneo/apkwrapper/ApplicationWrapper")&&str.Contains("Lcom/secneo/apkwrapper/DexInstall"))
@@ -68,6 +78,11 @@ namespace AutoAPKTool
             }
             else if (str.Contains("Lcom/bangcle/everisk/stub/"))
             {
+                result = "梆梆16年免费版加固";
+
+            }
+            else if (str.Contains("Lcom/secshell/shellwrapper/SecAppWrapper")&& str.Contains("Lcom/secshell/shellwrapper/DexInstall"))
+            {
                 result = "梆梆免费版加固";
 
             }
@@ -78,19 +93,25 @@ namespace AutoAPKTool
             }
             else if (str.Contains("Lcom/ali/mobisecenhance/StubApplication"))
             {
-                result = "阿里加固";
+                result = "阿里16年加固";
 
+            }else if (str.Contains("Lcom/ali/fixHelper"))
+            {
+                result = "阿里加固";
             }
-            else if(str.Length<90000)
+            else if (str.Contains("Lcom/gdog/AppWrapper"))
+            {
+                result = "娜迦加固";
+            }
+            else if (str.Length < 90000)
             {
                 result = "未知加固";
-
             }
             else
             {
                 result = "未加固";
             }
-        //    Console.WriteLine(str.Length);
+            //    Console.WriteLine(str.Length);
             return result;
 
 
@@ -114,7 +135,7 @@ namespace AutoAPKTool
             {
                 product = "apkprotect加密";
             }
-            else if (info.Contains("libexecmain.so"))
+            else if (info.Contains("libexec.so"))
             {
                 product = "爱加密加固";
             }
