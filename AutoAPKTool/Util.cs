@@ -60,6 +60,11 @@
             return $"/c \"\"{Constants.D2JDex2Jar}\" \"{inputDex}\" -o \"{outputJar}\"\"";
         }
 
+        public static string GetJar2DexArg(string inputDex, string outputJar)
+        {
+            return $"/c \"\"{Constants.D2JJar2Dex}\" \"{inputDex}\" -o \"{outputJar}\"\"";
+        }
+
         public static string GetApkinfo(string inputApk)
         {
             return $"/c \"\"{Constants.CheckProtect}\" l \"{inputApk}\"";

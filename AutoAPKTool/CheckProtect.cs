@@ -34,68 +34,62 @@ namespace AutoAPKTool
             if (str.Contains("Lcom/tencent/StubShell/LeguApplication"))
             {
                 result = "腾讯16年乐固";
-
             }
             if (str.Contains("Lcom/tencent/StubShell/TxAppEntry"))
             {
                 result = "腾讯乐固";
-
             }
             else if (str.Contains("Lcom/qihoo/util/StubApp"))
             {
                 result = "360加固";
-
             }
-            else if (str.Contains("Lcom/stub/StubApp")&& str.Contains("Lcom/qihoo/util/QHDialog"))
+            else if (str.Contains("Lcom/stub/StubApp") && str.Contains("Lcom/qihoo/util/QHDialog"))
             {
                 result = "360加固";
-
             }
-            else if (str.Contains("Lcom/shell/SuperApplication")&&str.Contains("Lcom/shell/NativeApplication"))
+            else if (str.Contains("Lcom/shell/SuperApplication") && str.Contains("Lcom/shell/NativeApplication"))
             {
                 result = "爱加密16年加固";
-
             }
             else if (str.Contains("Ls/h/e/l/l/S") && str.Contains("Ls/h/e/l/l/N"))
             {
                 result = "爱加密16年加固";
-
             }
-            else if (str.Contains("Lcom/secneo/apkwrapper/ApplicationWrapper")&&str.Contains("Lcom/secneo/apkwrapper/DexInstall"))
+            else if (str.Contains("Lcom/secneo/apkwrapper/ApplicationWrapper") &&
+                     str.Contains("Lcom/secneo/apkwrapper/DexInstall"))
             {
                 result = "梆梆企业版加固";
-
             }
             else if (str.Contains("Lcom/netease/nis/wrapper/MyApplication"))
             {
                 result = "网易云加密";
-
             }
             else if (str.Contains("Lcom/payegis/ProxyApplication"))
             {
                 result = "通付盾加固";
-
             }
             else if (str.Contains("Lcom/bangcle/everisk/stub/"))
             {
                 result = "梆梆16年免费版加固";
-
             }
-            else if (str.Contains("Lcom/secshell/shellwrapper/SecAppWrapper")&& str.Contains("Lcom/secshell/shellwrapper/DexInstall"))
+            else if (str.Contains("Lcom/secshell/shellwrapper/SecAppWrapper") &&
+                     str.Contains("Lcom/secshell/shellwrapper/DexInstall"))
             {
                 result = "梆梆免费版加固";
-
             }
             else if (str.Contains("Lcom/baidu/protect/StubApplication"))
             {
                 result = "百度加固";
-
+            }
+            else if (str.Contains("Lcom/bangcle/andjni/JniLib"))
+            {
+                result = "梆梆VMP加固";
             }
             else if (str.Contains("Lcom/ali/mobisecenhance/StubApplication"))
             {
                 result = "阿里16年加固";
-
-            }else if (str.Contains("Lcom/ali/fixHelper"))
+            }
+            else if (str.Contains("Lcom/ali/fixHelper"))
             {
                 result = "阿里加固";
             }
@@ -113,8 +107,6 @@ namespace AutoAPKTool
             }
             //    Console.WriteLine(str.Length);
             return result;
-
-
         }
 
         private static string GetApkInfo(string inputApk)
@@ -151,14 +143,15 @@ namespace AutoAPKTool
             {
                 product = "百度加固";
             }
-            else if (info.Contains("libddog.so")|| info.Contains("libvdog.so"))
+            else if (info.Contains("libddog.so") || info.Contains("libvdog.so"))
             {
                 product = "娜迦加固";
             }
             else if (info.Contains("libmobisec.so"))
             {
                 product = "阿里16年加固";
-            }else if (info.Contains("libdemolish.so"))
+            }
+            else if (info.Contains("libdemolish.so"))
             {
                 product = "阿里加固";
             }

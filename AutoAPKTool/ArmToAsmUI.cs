@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using AutoAPKTool.Properties;
 
 namespace AutoAPKTool
 {
@@ -18,7 +19,7 @@ namespace AutoAPKTool
             var instructionText = instruction.Text;
             if (string.IsNullOrEmpty(instructionText))
             {
-                error_tip.Text = "请输入指令哦";
+                error_tip.Text = Resources.pls_input_opcode;
                 return;
             }
             error_tip.Text = "";
@@ -31,7 +32,7 @@ namespace AutoAPKTool
             var streamWriter = new StreamWriter("tmp");
             streamWriter.Write(instructionText);
             streamWriter.Close();
-            result_tip.Text = "正在努力执行中...";
+            result_tip.Text = Resources.working_hard;
             try
             {
                 compeler.Arguments = "-mthumb tmp -al";
@@ -43,7 +44,7 @@ namespace AutoAPKTool
                 }
                 if(string.Equals(outpotly.Substring(38, 4),"    "))
                 {
-                    error_tip.Text = "请确认指令是否正确";
+                    error_tip.Text = Resources.pls_make_sure;
                     return;
                 }
                 thumb_text.Text = outpotly.Substring(38, 4);
@@ -59,11 +60,11 @@ namespace AutoAPKTool
             catch (Exception)
             {
                 // ignored
-                error_tip.Text = "转换出现异常";
+                error_tip.Text = Resources.convert_expcetion;
                 File.Delete("tmp");
                 return;
             }
-            result_tip.Text = "执行完成";
+            result_tip.Text = Resources.complete;
             File.Delete("tmp");
         }
 
@@ -71,7 +72,7 @@ namespace AutoAPKTool
         {
             if (!File.Exists(".\\tool\\as.exe"))
             {
-                error_tip.Text = "请检测根目录下是否包含as.exe程序";
+                error_tip.Text = Resources.pls_insure_your_as_path;
             }
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }

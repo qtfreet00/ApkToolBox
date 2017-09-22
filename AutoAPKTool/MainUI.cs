@@ -56,14 +56,11 @@ namespace AutoAPKTool
             {
                 _apkinfo = "";
             }
-            switch (flag)
+            if (flag == 0)
+                sh = "java.exe";
+            else if (flag == 1)
             {
-                case 0:
-                    sh = "java.exe";
-                    break;
-                case 1:
-                    sh = "cmd.exe";
-                    break;
+                sh = "cmd.exe";
             }
 
             var processStartInfo = new ProcessStartInfo(sh, args.ToString())
@@ -206,7 +203,7 @@ namespace AutoAPKTool
         {
             var text = this.textBox_path.Text;
             if (!File.Exists(text) || Path.GetExtension(text) != ".dex")
-            {
+            {  
                 MessageBox.Show(Resources.no_find_dex, Resources.info);
                 return;
             }
@@ -254,18 +251,11 @@ namespace AutoAPKTool
 
         private void btn_openFile_Click(object sender, EventArgs e)
         {
-            var op = new OpenFileDialog();
-            op.Filter = "支持类型|*.apk;*.jar;*.odex;*.dex";
+            var op = new OpenFileDialog {Filter = Resources.support_file};
             if (op.ShowDialog() == DialogResult.OK)
             {
                 textBox_path.Text = op.FileName;
             }
-        }
-
-
-        private void Btn_jadxClick(object sender, EventArgs e)
-        {
-            new Thread(() => { Excute(ExcuteCmd, "/c " +  Constants.Jadx, false); }).Start();
         }
 
 
@@ -362,28 +352,6 @@ namespace AutoAPKTool
             f.Show();
         }
 
-        private void ZipalginClick(object sender, EventArgs e)
-        {
-            var text = this.textBox_path.Text;
-            if (!File.Exists(text) || Path.GetExtension(text) != ".apk")
-            {
-                MessageBox.Show(Resources.no_find_apk, Resources.info);
-                return;
-            }
-
-            var saveFileDialog = new SaveFileDialog
-            {
-                Filter = Resources.apk_files,
-                DefaultExt = "apk",
-                InitialDirectory = Path.GetDirectoryName(text),
-                FileName = Path.GetFileNameWithoutExtension(text) + "_zipaligned.apk"
-            };
-            if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
-            var text2 = saveFileDialog.FileName;
-            var signArg = Util.ZipAlign(text, text2);
-            new Thread(() => { Excute(ExcuteCmd, signArg, true); }).Start();
-        }
-
 
         public void SetText(string str)
         {
@@ -420,9 +388,8 @@ namespace AutoAPKTool
                 MessageBox.Show(Resources.no_find_apk, Resources.info);
                 return;
             }
-            var result = "未知";
             //var cmd = Util.GetPackage(text);
-            var sel = @"classes.dex";
+            const string sel = @"classes.dex";
 
             new Thread(() =>
             {
@@ -431,20 +398,18 @@ namespace AutoAPKTool
                 var zip = new ZipFile(text);
                 var file = zip.SelectEntries(sel, @"\");
 
-                if (file.Count > 0)
-                {
-                    //这个文件存在！
-                    Stream decompressedStream = new MemoryStream();
-                    //解压文件 也可以直接使用上面的 file 来操作
-                    zip[sel].Extract(decompressedStream);
-                    decompressedStream.Position = 0;
-                    var reader = new StreamReader(decompressedStream);
-                    var dex = reader.ReadToEnd();
-                    MessageBox.Show(CheckProtect.checkProtect(dex),"提示");
+                if (file.Count <= 0) return;
+                //这个文件存在！
+                Stream decompressedStream = new MemoryStream();
+                //解压文件 也可以直接使用上面的 file 来操作
+                zip[sel].Extract(decompressedStream);
+                decompressedStream.Position = 0;
+                var reader = new StreamReader(decompressedStream);
+                var dex = reader.ReadToEnd();
+                MessageBox.Show(CheckProtect.checkProtect(dex), Resources.info);
 
 
-                    //myfile.txt为取出的文件文本
-                }
+                //myfile.txt为取出的文件文本
 
 
                 //  MessageBox.Show(result);
@@ -510,6 +475,40 @@ namespace AutoAPKTool
         {
             var f = new ArmForm();
             f.Show();
+        }
+
+
+        private void openJadx_Click(object sender, EventArgs e)
+        {
+            new Thread(() => { Excute(ExcuteCmd, "/c " + Constants.Jadx, false); }).Start();
+        }
+
+        private void Btn_jarToDexClick(object sender, EventArgs e)
+        {
+            var text = this.textBox_path.Text;
+            if (!File.Exists(text) || Path.GetExtension(text) != ".jar")
+            {
+                MessageBox.Show(Resources.no_find_jar, Resources.info);
+                return;
+            }
+
+            var saveFileDialog = new SaveFileDialog
+            {
+                Filter = Resources.dex_files,
+                InitialDirectory = Path.GetDirectoryName(text),
+                FileName = Path.GetFileNameWithoutExtension(text)
+            };
+            if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+            var outputJar = saveFileDialog.FileName;
+            var jar2DexArg = Util.GetJar2DexArg(text, outputJar);
+            Console.WriteLine(jar2DexArg);
+
+            new Thread(() => { Excute(ExcuteCmd, jar2DexArg, true); }).Start();
+        }
+
+        private void MainUI_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -178,4 +178,25 @@
   <data name="make_succ" xml:space="preserve">
     <value>生成成功</value>
   </data>
+  <data name="support_file" xml:space="preserve">
+    <value>支持类型|*.apk;*.jar;*.odex;*.dex</value>
+  </data>
+  <data name="pls_input_opcode" xml:space="preserve">
+    <value>请输入指令哦</value>
+  </data>
+  <data name="working_hard" xml:space="preserve">
+    <value>正在努力执行中...</value>
+  </data>
+  <data name="pls_make_sure" xml:space="preserve">
+    <value>请确认指令是否正确</value>
+  </data>
+  <data name="convert_expcetion" xml:space="preserve">
+    <value>转换出现异常</value>
+  </data>
+  <data name="complete" xml:space="preserve">
+    <value>执行完成</value>
+  </data>
+  <data name="pls_insure_your_as_path" xml:space="preserve">
+    <value>请检测根目录下是否包含as.exe程序</value>
+  </data>
 </root>

@@ -12,6 +12,7 @@
         public static string Aapt = ".\\tool\\aapt.exe";
         public static string JarJdGui = ".\\tool\\jd-gui.exe";
         public static string D2JDex2Jar = ".\\tool\\dex2jar\\d2j-dex2jar.bat";
+        public static string D2JJar2Dex = ".\\tool\\dex2jar\\d2j-jar2dex.bat";
         public static string Baksmali = ".\\tool\\baksmali.jar";
         public static string CheckProtect = ".\\tool\\aapt.exe";
         public static string Zipalign = ".\\tool\\zipalign.exe";

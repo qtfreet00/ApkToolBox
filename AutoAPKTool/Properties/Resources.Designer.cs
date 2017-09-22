@@ -70,6 +70,24 @@ namespace AutoAPKTool.Properties {
         }
         
         /// <summary>
+        ///   查找类似 执行完成 的本地化字符串。
+        /// </summary>
+        internal static string complete {
+            get {
+                return ResourceManager.GetString("complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 转换出现异常 的本地化字符串。
+        /// </summary>
+        internal static string convert_expcetion {
+            get {
+                return ResourceManager.GetString("convert_expcetion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 DEX|*.dex|All|*.* 的本地化字符串。
         /// </summary>
         internal static string dex_files {
@@ -238,6 +256,51 @@ namespace AutoAPKTool.Properties {
         internal static string pls_confirm_decompile_package {
             get {
                 return ResourceManager.GetString("pls_confirm_decompile_package", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入指令哦 的本地化字符串。
+        /// </summary>
+        internal static string pls_input_opcode {
+            get {
+                return ResourceManager.GetString("pls_input_opcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请检测根目录下是否包含as.exe程序 的本地化字符串。
+        /// </summary>
+        internal static string pls_insure_your_as_path {
+            get {
+                return ResourceManager.GetString("pls_insure_your_as_path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请确认指令是否正确 的本地化字符串。
+        /// </summary>
+        internal static string pls_make_sure {
+            get {
+                return ResourceManager.GetString("pls_make_sure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 支持类型|*.apk;*.jar;*.odex;*.dex 的本地化字符串。
+        /// </summary>
+        internal static string support_file {
+            get {
+                return ResourceManager.GetString("support_file", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 正在努力执行中... 的本地化字符串。
+        /// </summary>
+        internal static string working_hard {
+            get {
+                return ResourceManager.GetString("working_hard", resourceCulture);
             }
         }
     }

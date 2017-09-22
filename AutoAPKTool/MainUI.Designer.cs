@@ -48,6 +48,7 @@
             this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.签名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arm转机器码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打开jadxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.博客ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.吾爱破解ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,7 @@
             // textBox_path
             // 
             this.textBox_path.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_path.Location = new System.Drawing.Point(65, 36);
+            this.textBox_path.Location = new System.Drawing.Point(56, 36);
             this.textBox_path.Margin = new System.Windows.Forms.Padding(6);
             this.textBox_path.Name = "textBox_path";
             this.textBox_path.ReadOnly = true;
@@ -67,7 +68,7 @@
             // btn_Decompiler
             // 
             this.btn_Decompiler.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Decompiler.Location = new System.Drawing.Point(18, 86);
+            this.btn_Decompiler.Location = new System.Drawing.Point(18, 74);
             this.btn_Decompiler.Margin = new System.Windows.Forms.Padding(6);
             this.btn_Decompiler.Name = "btn_Decompiler";
             this.btn_Decompiler.Size = new System.Drawing.Size(95, 33);
@@ -79,7 +80,7 @@
             // btn_SignAPK
             // 
             this.btn_SignAPK.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_SignAPK.Location = new System.Drawing.Point(264, 86);
+            this.btn_SignAPK.Location = new System.Drawing.Point(264, 74);
             this.btn_SignAPK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_SignAPK.Name = "btn_SignAPK";
             this.btn_SignAPK.Size = new System.Drawing.Size(95, 33);
@@ -91,7 +92,7 @@
             // btn_BuildAndSign
             // 
             this.btn_BuildAndSign.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_BuildAndSign.Location = new System.Drawing.Point(140, 86);
+            this.btn_BuildAndSign.Location = new System.Drawing.Point(140, 74);
             this.btn_BuildAndSign.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_BuildAndSign.Name = "btn_BuildAndSign";
             this.btn_BuildAndSign.Size = new System.Drawing.Size(95, 33);
@@ -113,7 +114,7 @@
             // btn_dex2jar
             // 
             this.btn_dex2jar.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_dex2jar.Location = new System.Drawing.Point(18, 130);
+            this.btn_dex2jar.Location = new System.Drawing.Point(18, 118);
             this.btn_dex2jar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_dex2jar.Name = "btn_dex2jar";
             this.btn_dex2jar.Size = new System.Drawing.Size(95, 33);
@@ -125,7 +126,7 @@
             // btn_JdGUI
             // 
             this.btn_JdGUI.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_JdGUI.Location = new System.Drawing.Point(140, 130);
+            this.btn_JdGUI.Location = new System.Drawing.Point(140, 118);
             this.btn_JdGUI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_JdGUI.Name = "btn_JdGUI";
             this.btn_JdGUI.Size = new System.Drawing.Size(95, 33);
@@ -137,7 +138,7 @@
             // btn_openFile
             // 
             this.btn_openFile.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_openFile.Location = new System.Drawing.Point(419, 34);
+            this.btn_openFile.Location = new System.Drawing.Point(412, 34);
             this.btn_openFile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_openFile.Name = "btn_openFile";
             this.btn_openFile.Size = new System.Drawing.Size(69, 30);
@@ -149,29 +150,29 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox1.Location = new System.Drawing.Point(12, 213);
+            this.textBox1.Location = new System.Drawing.Point(12, 201);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(476, 223);
+            this.textBox1.Size = new System.Drawing.Size(476, 235);
             this.textBox1.TabIndex = 11;
             // 
             // btn_jadx
             // 
             this.btn_jadx.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_jadx.Location = new System.Drawing.Point(264, 130);
+            this.btn_jadx.Location = new System.Drawing.Point(264, 118);
             this.btn_jadx.Name = "btn_jadx";
             this.btn_jadx.Size = new System.Drawing.Size(95, 33);
             this.btn_jadx.TabIndex = 12;
-            this.btn_jadx.Text = "jadx";
+            this.btn_jadx.Text = "jar转dex";
             this.btn_jadx.UseVisualStyleBackColor = true;
-            this.btn_jadx.Click += new System.EventHandler(this.Btn_jadxClick);
+            this.btn_jadx.Click += new System.EventHandler(this.Btn_jarToDexClick);
             // 
             // btn_decompileDex
             // 
             this.btn_decompileDex.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_decompileDex.Location = new System.Drawing.Point(18, 174);
+            this.btn_decompileDex.Location = new System.Drawing.Point(18, 162);
             this.btn_decompileDex.Name = "btn_decompileDex";
             this.btn_decompileDex.Size = new System.Drawing.Size(95, 33);
             this.btn_decompileDex.TabIndex = 13;
@@ -182,7 +183,7 @@
             // btn_compileDex
             // 
             this.btn_compileDex.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_compileDex.Location = new System.Drawing.Point(140, 174);
+            this.btn_compileDex.Location = new System.Drawing.Point(140, 162);
             this.btn_compileDex.Name = "btn_compileDex";
             this.btn_compileDex.Size = new System.Drawing.Size(95, 33);
             this.btn_compileDex.TabIndex = 14;
@@ -193,7 +194,7 @@
             // btn_env
             // 
             this.btn_env.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_env.Location = new System.Drawing.Point(264, 174);
+            this.btn_env.Location = new System.Drawing.Point(264, 162);
             this.btn_env.Name = "btn_env";
             this.btn_env.Size = new System.Drawing.Size(95, 33);
             this.btn_env.TabIndex = 15;
@@ -204,7 +205,7 @@
             // my_sign
             // 
             this.my_sign.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.my_sign.Location = new System.Drawing.Point(386, 86);
+            this.my_sign.Location = new System.Drawing.Point(386, 74);
             this.my_sign.Name = "my_sign";
             this.my_sign.Size = new System.Drawing.Size(95, 33);
             this.my_sign.TabIndex = 16;
@@ -215,7 +216,7 @@
             // dec_odex
             // 
             this.dec_odex.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dec_odex.Location = new System.Drawing.Point(386, 130);
+            this.dec_odex.Location = new System.Drawing.Point(386, 118);
             this.dec_odex.Name = "dec_odex";
             this.dec_odex.Size = new System.Drawing.Size(95, 33);
             this.dec_odex.TabIndex = 17;
@@ -226,7 +227,7 @@
             // getArgs
             // 
             this.getArgs.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.getArgs.Location = new System.Drawing.Point(386, 174);
+            this.getArgs.Location = new System.Drawing.Point(386, 162);
             this.getArgs.Name = "getArgs";
             this.getArgs.Size = new System.Drawing.Size(95, 33);
             this.getArgs.TabIndex = 18;
@@ -240,6 +241,7 @@
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.配置ToolStripMenuItem,
             this.arm转机器码ToolStripMenuItem,
+            this.打开jadxToolStripMenuItem,
             this.关于ToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
@@ -269,6 +271,13 @@
             this.arm转机器码ToolStripMenuItem.Text = "Arm转机器码";
             this.arm转机器码ToolStripMenuItem.Click += new System.EventHandler(this.Btn_ArmToAsm_Click);
             // 
+            // 打开jadxToolStripMenuItem
+            // 
+            this.打开jadxToolStripMenuItem.Name = "打开jadxToolStripMenuItem";
+            this.打开jadxToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.打开jadxToolStripMenuItem.Text = "打开jadx";
+            this.打开jadxToolStripMenuItem.Click += new System.EventHandler(this.openJadx_Click);
+            // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -281,14 +290,14 @@
             // 博客ToolStripMenuItem
             // 
             this.博客ToolStripMenuItem.Name = "博客ToolStripMenuItem";
-            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.博客ToolStripMenuItem.Text = "博客";
             this.博客ToolStripMenuItem.Click += new System.EventHandler(this.Btn_BlogClick);
             // 
             // 吾爱破解ToolStripMenuItem
             // 
             this.吾爱破解ToolStripMenuItem.Name = "吾爱破解ToolStripMenuItem";
-            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.吾爱破解ToolStripMenuItem.Text = "吾爱破解";
             this.吾爱破解ToolStripMenuItem.Click += new System.EventHandler(this.Btn_52pojieClick);
             // 
@@ -324,7 +333,8 @@
             this.MaximizeBox = false;
             this.Name = "MainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Apktool Box v1.6.2 beta1";
+            this.Text = "Apktool Box v1.6.2";
+            this.Load += new System.EventHandler(this.MainUI_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.menu.ResumeLayout(false);
@@ -357,6 +367,7 @@
         private System.Windows.Forms.ToolStripMenuItem 博客ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 吾爱破解ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arm转机器码ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打开jadxToolStripMenuItem;
     }
 }
 
