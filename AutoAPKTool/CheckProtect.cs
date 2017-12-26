@@ -34,7 +34,7 @@ namespace AutoAPKTool
             if (str.Contains("Lcom/tencent/StubShell/LeguApplication"))
             {
                 result = "腾讯16年乐固";
-            }
+            }else 
             if (str.Contains("Lcom/tencent/StubShell/TxAppEntry"))
             {
                 result = "腾讯乐固";
@@ -45,7 +45,7 @@ namespace AutoAPKTool
             }
             else if (str.Contains("Lcom/stub/StubApp") && str.Contains("Lcom/qihoo/util/QHDialog"))
             {
-                result = "360加固";
+                result = "360新版加固";
             }
             else if (str.Contains("Lcom/shell/SuperApplication") && str.Contains("Lcom/shell/NativeApplication"))
             {
@@ -93,9 +93,21 @@ namespace AutoAPKTool
             {
                 result = "阿里加固";
             }
+            else if (str.Contains("Lcom/ali/mobisecenhance/ld/StubApplication"))
+            {
+                result = "阿里17年新版加固";
+            }
             else if (str.Contains("Lcom/gdog/AppWrapper"))
             {
                 result = "娜迦加固";
+            }
+            else if(str.Contains("Lcom/vdog/VLibrary"))
+            {
+                result = "娜迦VMP加固";
+            }
+            else if (str.Contains("Lcn/securitystack/stee/AppStub"))
+            {
+                result = "顶象加固";
             }
             else if (str.Length < 90000)
             {

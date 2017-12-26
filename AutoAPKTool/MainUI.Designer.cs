@@ -290,14 +290,14 @@
             // 博客ToolStripMenuItem
             // 
             this.博客ToolStripMenuItem.Name = "博客ToolStripMenuItem";
-            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.博客ToolStripMenuItem.Text = "博客";
             this.博客ToolStripMenuItem.Click += new System.EventHandler(this.Btn_BlogClick);
             // 
             // 吾爱破解ToolStripMenuItem
             // 
             this.吾爱破解ToolStripMenuItem.Name = "吾爱破解ToolStripMenuItem";
-            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.吾爱破解ToolStripMenuItem.Text = "吾爱破解";
             this.吾爱破解ToolStripMenuItem.Click += new System.EventHandler(this.Btn_52pojieClick);
             // 
@@ -333,7 +333,7 @@
             this.MaximizeBox = false;
             this.Name = "MainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Apktool Box v1.6.2";
+            this.Text = "Apktool Box v1.6.3";
             this.Load += new System.EventHandler(this.MainUI_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);

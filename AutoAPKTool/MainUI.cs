@@ -68,7 +68,7 @@ namespace AutoAPKTool
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,
-                RedirectStandardError = true
+                RedirectStandardError = true,
             };
             using (var process = new Process())
             {
@@ -84,10 +84,20 @@ namespace AutoAPKTool
                         }
                     }));
                 };
+                process.ErrorDataReceived += delegate(object s, DataReceivedEventArgs e)
+                {
+                    base.Invoke(new Action(delegate
+                        {
+                            this.SetTextBoxStr(this.textBox1, this.textBox1.Text + e.Data);
+                        }
+                    ));
+                };
                 process.Start();
                 process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
                 process.WaitForExit();
                 process.Close();
+                process.Dispose();
             }
             base.Invoke(new Action(delegate { this.SetTextBoxStr(this.textBox1, this.textBox1.Text + "完成!"); }));
         }
@@ -95,12 +105,12 @@ namespace AutoAPKTool
         // button Click
         private void btn_Decompiler_Click(object sender, EventArgs e)
         {
-            var text = this.textBox_path.Text;
-            if (Directory.Exists(text))
+            var inputApk = this.textBox_path.Text;
+            if (Directory.Exists(inputApk))
             {
                 if (MessageBox.Show(Resources.need_decompiles, Resources.info, MessageBoxButtons.OKCancel) !=
                     DialogResult.OK) return;
-                var fileinfos = Directory.GetFiles(text);
+                var fileinfos = Directory.GetFiles(inputApk);
                 var size = fileinfos.Length;
                 var list = new List<string>();
 
@@ -124,12 +134,12 @@ namespace AutoAPKTool
                     for (var k = 0; k < len; k++)
                     {
                         Excute(ExcuteJava,
-                            Util.GetDecompilerArg(list[k], text + "\\" + Path.GetFileNameWithoutExtension(list[k])),
+                            Util.GetDecompilerArg(list[k], inputApk + "\\" + Path.GetFileNameWithoutExtension(list[k])),
                             true);
                     }
                 }).Start();
             }
-            else if (!File.Exists(text) || Path.GetExtension(text) != ".apk")
+            else if (!File.Exists(inputApk) || Path.GetExtension(inputApk) != ".apk")
             {
                 MessageBox.Show(Resources.no_find_apk, Resources.info);
             }
@@ -138,42 +148,42 @@ namespace AutoAPKTool
                 var saveFileDialog = new SaveFileDialog
                 {
                     Filter = Resources.files,
-                    InitialDirectory = Path.GetDirectoryName(text),
-                    FileName = Path.GetFileNameWithoutExtension(text)
+                    InitialDirectory = Path.GetDirectoryName(inputApk),
+                    FileName = Path.GetFileNameWithoutExtension(inputApk)
                 };
                 if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
                 var outputFolderName = saveFileDialog.FileName.ToString();
-                var decompilerArg = Util.GetDecompilerArg(text, outputFolderName);
+                var decompilerArg = Util.GetDecompilerArg(inputApk, outputFolderName);
                 new Thread(() => { Excute(ExcuteJava, decompilerArg, true); }).Start();
             }
         }
 
         private void btn_SignAPK_Click(object sender, EventArgs e)
         {
-            var text = this.textBox_path.Text;
-            if (Directory.Exists(text))
+            var apkName = this.textBox_path.Text;
+            if (Directory.Exists(apkName))
             {
                 if (MessageBox.Show(Resources.need_signs, Resources.info, MessageBoxButtons.OKCancel) !=
                     DialogResult.OK)
                     return;
-                var allsign = Util.GetSignArg(text);
+                var allsign = Util.GetSignArg(apkName);
                 new Thread(() => { Excute(ExcuteJava, allsign, true); }).Start();
             }
-            else if (!File.Exists(text) || Path.GetExtension(text) != ".apk")
+            else if (!File.Exists(apkName) || Path.GetExtension(apkName) != ".apk")
             {
                 MessageBox.Show(Resources.no_find_apk, Resources.info);
             }
             else
             {
-                var cmd = Util.GetSignArg(text);
+                var cmd = Util.GetSignArg(apkName);
                 new Thread(() => { Excute(ExcuteJava, cmd, true); }).Start();
             }
         }
 
         private void btn_BuildAndSign_Click(object sender, EventArgs e)
         {
-            var text = this.textBox_path.Text;
-            if (!Directory.Exists(text))
+            var intputFolder = this.textBox_path.Text;
+            if (!Directory.Exists(intputFolder))
             {
                 MessageBox.Show(Resources.pls_confirm_decompile_package, Resources.info);
                 return;
@@ -182,15 +192,14 @@ namespace AutoAPKTool
             {
                 Filter = Resources.apk_files,
                 DefaultExt = "apk",
-                InitialDirectory = Path.GetDirectoryName(text),
-                FileName = Path.GetFileNameWithoutExtension(text) + "_Mod.apk"
+                InitialDirectory = Path.GetDirectoryName(intputFolder),
+                FileName = Path.GetFileName(intputFolder) + "_Mod.apk",   
             };
+          
             if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
-            var text2 = saveFileDialog.FileName.ToString();
-
-            Console.WriteLine(Resources.path, text2);
-            var args1 = Util.GetBuildArg(text, text2);
-            var args2 = Util.GetSignArg(text2);
+            var fileName = saveFileDialog.FileName;
+            var args1 = Util.GetBuildArg(intputFolder, fileName);
+            var args2 = Util.GetSignArg(fileName);
             // Start
             new Thread(() =>
             {
@@ -201,8 +210,8 @@ namespace AutoAPKTool
 
         private void btn_dex2jar_Click(object sender, EventArgs e)
         {
-            var text = this.textBox_path.Text;
-            if (!File.Exists(text) || Path.GetExtension(text) != ".dex")
+            var inputDex = this.textBox_path.Text;
+            if (!File.Exists(inputDex) || Path.GetExtension(inputDex) != ".dex")
             {  
                 MessageBox.Show(Resources.no_find_dex, Resources.info);
                 return;
@@ -211,14 +220,12 @@ namespace AutoAPKTool
             var saveFileDialog = new SaveFileDialog
             {
                 Filter = Resources.jar_files,
-                InitialDirectory = Path.GetDirectoryName(text),
-                FileName = Path.GetFileNameWithoutExtension(text)
+                InitialDirectory = Path.GetDirectoryName(inputDex),
+                FileName = Path.GetFileNameWithoutExtension(inputDex)
             };
             if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
             var outputJar = saveFileDialog.FileName.ToString();
-            var dex2JarArg = Util.GetDex2JarArg(text, outputJar);
-            Console.WriteLine(dex2JarArg);
-
+            var dex2JarArg = Util.GetDex2JarArg(inputDex, outputJar);
             new Thread(() => { Excute(ExcuteCmd, dex2JarArg, true); }).Start();
         }
 
@@ -240,13 +247,13 @@ namespace AutoAPKTool
 
         private void btn_JdGUI_Click(object sender, EventArgs e)
         {
-            var text = this.textBox_path.Text;
-            if (!File.Exists(text) || Path.GetExtension(text) != ".jar")
+            var path = this.textBox_path.Text;
+            if (!File.Exists(path) || Path.GetExtension(path) != ".jar")
             {
                 MessageBox.Show(Resources.no_find_jar, Resources.info);
                 return;
             }
-            new Thread(() => { Excute(ExcuteCmd, "/c " + Constants.JarJdGui + " " + text, false); }).Start();
+            new Thread(() => { Excute(ExcuteCmd, "/c " + Constants.JarJdGui + " " + path, false); }).Start();
         }
 
         private void btn_openFile_Click(object sender, EventArgs e)
@@ -261,8 +268,8 @@ namespace AutoAPKTool
 
         private void Btn_decompileDexClick(object sender, EventArgs e)
         {
-            var text = this.textBox_path.Text;
-            if (!File.Exists(text) || Path.GetExtension(text) != ".dex")
+            var inputDex = this.textBox_path.Text;
+            if (!File.Exists(inputDex) || Path.GetExtension(inputDex) != ".dex")
             {
                 MessageBox.Show(Resources.no_find_dex, Resources.info);
                 return;
@@ -270,19 +277,19 @@ namespace AutoAPKTool
             var saveFileDialog = new SaveFileDialog
             {
                 Filter = Resources.files,
-                InitialDirectory = Path.GetDirectoryName(text),
-                FileName = Path.GetFileNameWithoutExtension(text)
+                InitialDirectory = Path.GetDirectoryName(inputDex),
+                FileName = Path.GetFileNameWithoutExtension(inputDex)
             };
             if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
             var outputFolderName = saveFileDialog.FileName.ToString();
-            var decompilerDex = Util.GetDecompilerDex(text, outputFolderName);
+            var decompilerDex = Util.GetDecompilerDex(inputDex, outputFolderName);
             new Thread(() => { Excute(ExcuteJava, decompilerDex, true); }).Start();
         }
 
         private void Btn_compileDexClick(object sender, EventArgs e)
         {
-            var text = this.textBox_path.Text;
-            if (!Directory.Exists(text))
+            var folderName = this.textBox_path.Text;
+            if (!Directory.Exists(folderName))
             {
                 MessageBox.Show(Resources.no_find_smali_files, Resources.info);
                 return;
@@ -291,13 +298,12 @@ namespace AutoAPKTool
             {
                 Filter = Resources.dex_files,
                 DefaultExt = "dex",
-                InitialDirectory = Path.GetDirectoryName(text),
-                FileName = Path.GetFileNameWithoutExtension(text) + "_Mod.dex"
+                InitialDirectory = Path.GetDirectoryName(folderName),
+                FileName = Path.GetFileNameWithoutExtension(folderName) + "_Mod.dex"
             };
             if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
-            var text2 = saveFileDialog.FileName;
-            Console.WriteLine(Resources.path, text2);
-            var buildDex = Util.GetBuildDex(text, text2);
+            var fileName = saveFileDialog.FileName;
+            var buildDex = Util.GetBuildDex(folderName, fileName);
 
             new Thread(() => { Excute(ExcuteJava, buildDex, true); }).Start();
         }
@@ -327,8 +333,8 @@ namespace AutoAPKTool
             }
             else
             {
-                var args3 = Util.Signapk(_path, _keyword, text, _alis);
-                new Thread(() => { Excute(ExcuteJava, args3, true); }).Start();
+                var signapk = Util.Signapk(_path, _keyword, text, _alis);
+                new Thread(() => { Excute(ExcuteJava, signapk, true); }).Start();
             }
         }
 
@@ -393,8 +399,6 @@ namespace AutoAPKTool
 
             new Thread(() =>
             {
-                // result = CheckProtect.Start(text);
-                //  Excute(ExcuteCmd, cmd, false);
                 var zip = new ZipFile(text);
                 var file = zip.SelectEntries(sel, @"\");
 
@@ -407,23 +411,17 @@ namespace AutoAPKTool
                 var reader = new StreamReader(decompressedStream);
                 var dex = reader.ReadToEnd();
                 MessageBox.Show(CheckProtect.checkProtect(dex), Resources.info);
-
-
-                //myfile.txt为取出的文件文本
-
-
-                //  MessageBox.Show(result);
             }).Start();
         }
 
         private void Btn_BlogClick(object sender, EventArgs e)
         {
-            Process.Start("https://qtfreet.com/");
+            Process.Start("http://qtfreet.com/");
         }
 
         private void Btn_52pojieClick(object sender, EventArgs e)
         {
-            Process.Start("http://www.52pojie.cn/");
+            Process.Start("https://www.52pojie.cn/");
         }
 
         private void getLauncher(object sender, EventArgs e)
@@ -435,7 +433,6 @@ namespace AutoAPKTool
                 return;
             }
             var cmd = Util.GetPackageNew(text);
-            Console.WriteLine(cmd);
             new Thread(() =>
             {
                 Excute(ExcuteJava, cmd, false);
@@ -501,8 +498,6 @@ namespace AutoAPKTool
             if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
             var outputJar = saveFileDialog.FileName;
             var jar2DexArg = Util.GetJar2DexArg(text, outputJar);
-            Console.WriteLine(jar2DexArg);
-
             new Thread(() => { Excute(ExcuteCmd, jar2DexArg, true); }).Start();
         }
 

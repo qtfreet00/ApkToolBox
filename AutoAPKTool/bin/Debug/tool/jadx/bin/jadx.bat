@@ -8,13 +8,13 @@
 @rem Set local scope for the variables with windows NT shell
 if "%OS%"=="Windows_NT" setlocal
 
-@rem Add default JVM options here. You can also use JAVA_OPTS and JADX_OPTS to pass JVM options to this script.
-set DEFAULT_JVM_OPTS=
-
 set DIRNAME=%~dp0
 if "%DIRNAME%" == "" set DIRNAME=.
 set APP_BASE_NAME=%~n0
 set APP_HOME=%DIRNAME%..
+
+@rem Add default JVM options here. You can also use JAVA_OPTS and JADX_OPTS to pass JVM options to this script.
+set DEFAULT_JVM_OPTS="-Xms2g" "-Xmx4g"
 
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
@@ -46,7 +46,7 @@ echo location of your Java installation.
 goto fail
 
 :init
-@rem Get command-line arguments, handling Windowz variants
+@rem Get command-line arguments, handling Windows variants
 
 if not "%OS%" == "Windows_NT" goto win9xME_args
 if "%@eval[2+2]" == "4" goto 4NT_args
@@ -69,7 +69,7 @@ set CMD_LINE_ARGS=%$
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\jadx-cli-0.6.1.jar;%APP_HOME%\lib\android-5.1.jar;%APP_HOME%\lib\dx-1.10.jar;%APP_HOME%\lib\slf4j-api-1.7.10.jar;%APP_HOME%\lib\jadx-core-0.6.1.jar;%APP_HOME%\lib\jcommander-1.47.jar;%APP_HOME%\lib\logback-classic-1.1.2.jar;%APP_HOME%\lib\commons-io-2.4.jar;%APP_HOME%\lib\asm-5.0.3.jar;%APP_HOME%\lib\annotations-12.0.jar;%APP_HOME%\lib\cloning-1.9.2.jar;%APP_HOME%\lib\logback-core-1.1.2.jar;%APP_HOME%\lib\objenesis-2.1.jar
+set CLASSPATH=%APP_HOME%\lib\jadx-cli-0.6.2.jar;%APP_HOME%\lib\android-5.1.jar;%APP_HOME%\lib\dx-1.11.jar;%APP_HOME%\lib\jadx-core-0.6.2.jar;%APP_HOME%\lib\jcommander-1.72.jar;%APP_HOME%\lib\logback-classic-1.2.3.jar;%APP_HOME%\lib\commons-io-2.5.jar;%APP_HOME%\lib\asm-6.0.jar;%APP_HOME%\lib\annotations-12.0.jar;%APP_HOME%\lib\cloning-1.9.6.jar;%APP_HOME%\lib\logback-core-1.2.3.jar;%APP_HOME%\lib\objenesis-2.6.jar;%APP_HOME%\lib\slf4j-api-1.7.25.jar
 
 @rem Execute jadx
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %JADX_OPTS%  -classpath "%CLASSPATH%" jadx.cli.JadxCLI %CMD_LINE_ARGS%
