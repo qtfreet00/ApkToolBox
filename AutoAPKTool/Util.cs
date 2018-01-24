@@ -49,6 +49,12 @@
         }
 
 
+        public static string GetDecompilerArgWithoutRes(string inputApk, string outputFolderName)
+        {
+            return $"-jar \"{Constants.JarApktool}\" d -r \"{inputApk}\" -o \"{outputFolderName}\"";
+        }
+
+
         public static string GetDecompilerDex(string inputDex, string outputFolderName)
         {
             return $"-jar \"{Constants.Baksmali}\" \"d\"  \"{inputDex}\" -o \"{outputFolderName}\"";

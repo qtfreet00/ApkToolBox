@@ -28,7 +28,7 @@
 		private void InitializeComponent()
 		{
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainUI));
-            this.textBox_path = new System.Windows.Forms.TextBox();
+            this.open_path = new System.Windows.Forms.TextBox();
             this.btn_Decompiler = new System.Windows.Forms.Button();
             this.btn_SignAPK = new System.Windows.Forms.Button();
             this.btn_BuildAndSign = new System.Windows.Forms.Button();
@@ -36,7 +36,7 @@
             this.btn_dex2jar = new System.Windows.Forms.Button();
             this.btn_JdGUI = new System.Windows.Forms.Button();
             this.btn_openFile = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Log = new System.Windows.Forms.TextBox();
             this.btn_jadx = new System.Windows.Forms.Button();
             this.btn_decompileDex = new System.Windows.Forms.Button();
             this.btn_compileDex = new System.Windows.Forms.Button();
@@ -52,18 +52,19 @@
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.博客ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.吾爱破解ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenSourceUrl = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox_path
+            // open_path
             // 
-            this.textBox_path.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_path.Location = new System.Drawing.Point(56, 36);
-            this.textBox_path.Margin = new System.Windows.Forms.Padding(6);
-            this.textBox_path.Name = "textBox_path";
-            this.textBox_path.ReadOnly = true;
-            this.textBox_path.Size = new System.Drawing.Size(347, 26);
-            this.textBox_path.TabIndex = 0;
+            this.open_path.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.open_path.Location = new System.Drawing.Point(56, 36);
+            this.open_path.Margin = new System.Windows.Forms.Padding(6);
+            this.open_path.Name = "open_path";
+            this.open_path.ReadOnly = true;
+            this.open_path.Size = new System.Drawing.Size(347, 26);
+            this.open_path.TabIndex = 0;
             // 
             // btn_Decompiler
             // 
@@ -147,16 +148,16 @@
             this.btn_openFile.UseVisualStyleBackColor = true;
             this.btn_openFile.Click += new System.EventHandler(this.btn_openFile_Click);
             // 
-            // textBox1
+            // Log
             // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox1.Location = new System.Drawing.Point(12, 201);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(476, 235);
-            this.textBox1.TabIndex = 11;
+            this.Log.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Log.Location = new System.Drawing.Point(12, 201);
+            this.Log.Multiline = true;
+            this.Log.Name = "Log";
+            this.Log.ReadOnly = true;
+            this.Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Log.Size = new System.Drawing.Size(476, 235);
+            this.Log.TabIndex = 11;
             // 
             // btn_jadx
             // 
@@ -233,7 +234,7 @@
             this.getArgs.TabIndex = 18;
             this.getArgs.Text = "启动命令";
             this.getArgs.UseVisualStyleBackColor = true;
-            this.getArgs.Click += new System.EventHandler(this.getLauncher);
+            this.getArgs.Click += new System.EventHandler(this.GetLauncher);
             // 
             // menu
             // 
@@ -282,7 +283,8 @@
             // 
             this.关于ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.博客ToolStripMenuItem,
-            this.吾爱破解ToolStripMenuItem});
+            this.吾爱破解ToolStripMenuItem,
+            this.OpenSourceUrl});
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
             this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.关于ToolStripMenuItem.Text = "关于";
@@ -290,16 +292,23 @@
             // 博客ToolStripMenuItem
             // 
             this.博客ToolStripMenuItem.Name = "博客ToolStripMenuItem";
-            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.博客ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.博客ToolStripMenuItem.Text = "博客";
             this.博客ToolStripMenuItem.Click += new System.EventHandler(this.Btn_BlogClick);
             // 
             // 吾爱破解ToolStripMenuItem
             // 
             this.吾爱破解ToolStripMenuItem.Name = "吾爱破解ToolStripMenuItem";
-            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.吾爱破解ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.吾爱破解ToolStripMenuItem.Text = "吾爱破解";
             this.吾爱破解ToolStripMenuItem.Click += new System.EventHandler(this.Btn_52pojieClick);
+            // 
+            // OpenSourceUrl
+            // 
+            this.OpenSourceUrl.Name = "OpenSourceUrl";
+            this.OpenSourceUrl.Size = new System.Drawing.Size(152, 22);
+            this.OpenSourceUrl.Text = "开源地址";
+            this.OpenSourceUrl.Click += new System.EventHandler(this.OpenSourceUrl_Click);
             // 
             // MainUI
             // 
@@ -314,7 +323,7 @@
             this.Controls.Add(this.btn_compileDex);
             this.Controls.Add(this.btn_decompileDex);
             this.Controls.Add(this.btn_jadx);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Log);
             this.Controls.Add(this.btn_openFile);
             this.Controls.Add(this.btn_JdGUI);
             this.Controls.Add(this.btn_dex2jar);
@@ -322,7 +331,7 @@
             this.Controls.Add(this.btn_BuildAndSign);
             this.Controls.Add(this.btn_SignAPK);
             this.Controls.Add(this.btn_Decompiler);
-            this.Controls.Add(this.textBox_path);
+            this.Controls.Add(this.open_path);
             this.Controls.Add(this.menu);
             this.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.Color.Black;
@@ -333,7 +342,7 @@
             this.MaximizeBox = false;
             this.Name = "MainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Apktool Box v1.6.3";
+            this.Text = "Apktool Box v1.6.4";
             this.Load += new System.EventHandler(this.MainUI_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
@@ -347,7 +356,7 @@
 		private System.Windows.Forms.Button my_sign;
 		private System.Windows.Forms.Button dec_odex;
 		private System.Windows.Forms.Button getArgs;
-		private System.Windows.Forms.TextBox textBox_path;
+		private System.Windows.Forms.TextBox open_path;
 		private System.Windows.Forms.Button btn_Decompiler;
 		private System.Windows.Forms.Button btn_SignAPK;
 		private System.Windows.Forms.Button btn_BuildAndSign;
@@ -355,7 +364,7 @@
 		private System.Windows.Forms.Button btn_dex2jar;
 		private System.Windows.Forms.Button btn_JdGUI;
 		private System.Windows.Forms.Button btn_openFile;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox Log;
 		private System.Windows.Forms.Button btn_jadx;
 		private System.Windows.Forms.Button btn_decompileDex;
 		private System.Windows.Forms.Button btn_compileDex;
@@ -368,6 +377,7 @@
         private System.Windows.Forms.ToolStripMenuItem 吾爱破解ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arm转机器码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 打开jadxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpenSourceUrl;
     }
 }
 

@@ -70,7 +70,7 @@ namespace AutoAPKTool
             return $"-jar \"{this.KEYVER}\"  \"{path}\"  \"{pass}\" \"{alis}\" \"{alis_pass}\"";
         }
 
-        private string KEYVER = ".\\tool\\keyver.jar";
+        private readonly string KEYVER = ".\\tool\\keyver.jar";
 
 
         // ExcuteJar

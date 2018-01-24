@@ -199,4 +199,7 @@
   <data name="pls_insure_your_as_path" xml:space="preserve">
     <value>请检测根目录下是否包含as.exe程序</value>
   </data>
+  <data name="DecodeWithoutResource" xml:space="preserve">
+    <value>是否需要忽略res资源文件？</value>
+  </data>
 </root>
